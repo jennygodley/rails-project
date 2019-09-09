@@ -42,7 +42,7 @@ class WordsController < ProtectedController
     @words = current_user.words
     @sample = @words.sample
 
-    render json: @sample.word
+    render json: @sample
   end
 
   private
