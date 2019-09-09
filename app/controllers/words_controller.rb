@@ -1,9 +1,9 @@
-class WordsController < ApplicationController
+class WordsController < ProtectedController
   before_action :set_word, only: [:show, :update, :destroy]
 
   # GET /words
   def index
-    @words = Word.all
+    @words = current_user.words
 
     render json: @words
   end
@@ -36,6 +36,10 @@ class WordsController < ApplicationController
   # DELETE /words/1
   def destroy
     @word.destroy
+  end
+
+  def random
+    @word = current_user.words.sample
   end
 
   private
