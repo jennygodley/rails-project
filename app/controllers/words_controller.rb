@@ -39,9 +39,10 @@ class WordsController < ProtectedController
   end
 
   def random
-    @word = current_user.words.sample
+    @words = current_user.words
+    @sample = @words.sample
 
-    render json: @word
+    render json: @sample.word
   end
 
   private
