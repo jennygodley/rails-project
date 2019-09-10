@@ -12,4 +12,6 @@ Rails.application.routes.draw do
   patch '/change-password' => 'users#changepw'
 
   get '/random' => 'words#random'
+  get '/rapidapikey' => 'words#rapidapikey'
+
 end
