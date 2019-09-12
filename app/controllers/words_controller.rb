@@ -17,7 +17,8 @@ class WordsController < ProtectedController
 
   # POST /words
   def create
-    @word = Word.new(word_params)
+    @word = current_user.words.build(word_params)
+    # @word = Word.new(word_params)
 
     if @word.save
       render json: @word, status: :created, location: @word
