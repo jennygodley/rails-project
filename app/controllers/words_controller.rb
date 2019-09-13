@@ -71,7 +71,7 @@ class WordsController < ProtectedController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_word
-      @word = Word.find(params[:id])
+      @word = current_user.examples.find(params[:id])
     end
 
     # Only allow a trusted parameter "white list" through.
