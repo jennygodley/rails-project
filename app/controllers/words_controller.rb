@@ -36,6 +36,16 @@ class WordsController < ProtectedController
     end
   end
 
+  # # PATCH/PUT /examples/1
+  # # PATCH/PUT /examples/1.json
+  # def update
+  #   if @example.update(example_params)
+  #     render json: @example
+  #   else
+  #     render json: @example.errors, status: :unprocessable_entity
+  #   end
+  # end
+
   # DELETE /words/1
   def destroy
     @word.destroy
@@ -71,7 +81,7 @@ class WordsController < ProtectedController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_word
-      @word = current_user.examples.find(params[:id])
+      @word = current_user.words.find(params[:id])
     end
 
     # Only allow a trusted parameter "white list" through.
